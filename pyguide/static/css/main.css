@@ -1,0 +1,210 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+
+.mmn-card-img {
+    object-fit:cover;
+    border-radius: 20px 20px 0 0 ;
+}
+
+.mmn-rounded{
+    border-radius: 15px 15px 15px 15px;
+}
+
+.mmn-rounded-top{
+    border-radius: 20px 20px 0 0;
+}
+
+.mmn-rounded-bottom{
+    border-radius: 0 0 20px 20px;
+}
+
+.mmn-nav-bottom{
+    border-bottom: 5px solid #14A44D;
+    color: #000000 !important;
+}
+
+.mmn-nav-item{
+    color: #9FA6B2;
+}
+
+.mmn-link{
+    color:#6495ED;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration:none;
+}
+.mmn-link:hover{
+    color:#00BFFF;
+    font-weight: bold;
+}
+.mmn-collapse-link{
+    color:rgb(33,37,41);
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration:none;
+}
+.mmn-collapse-link:hover{
+    color: #F8F8FF;
+    font-weight: bold;
+}
+.mmn-back-link{
+    color:#808080;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration:none;
+}
+
+.mmn-back-link:hover{
+    color:#000000;
+    font-weight: bold;
+}
+.mmn-nav{
+    font-weight: bold;
+}
+.mmn-nav:hover{
+    font-weight: bold;
+}
+.mmn-nav-active{
+    border-radius: 15PX;
+    background-color: #595959;
+    padding-left: 5PX;
+    padding-right: 5PX;
+    color: white !important;
+}
+
+.mmn-font{
+    font-family: "微軟正黑體";
+    font-weight: bold;
+}
+
+.mmn-exec-container{
+    border-left: 5px solid #007FFF;
+}
+
+.mmn-markdown-border{
+    border-left: 5px solid #17B169;
+}
+
+.mmn-status-bar-icon{
+    color:#eee;
+    background-color: #696969;
+    border-radius: 10%;
+    font-size: 1.5rem;
+    padding: 3px;
+}
+.mmn-status-bar-icon:hover{
+    color:#1E90FF;
+    background-color: #D3D3D3;
+    border-radius: 10%;
+    font-size: 1.5rem;
+    padding: 3px;
+}
+.mmn-exec-btn{
+    border: none;
+    margin-top: 0.5rem;
+    color: #007FFF;
+    background:white;
+    font-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.1rem;
+    border-radius: 100%;
+    filter: drop-shadow(5px 5px 3px #909090);
+}
+.mmn-exec-btn:hover{
+    color: white;
+    background: #007FFF;
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+    transition: .2s;
+    
+}
+.mmn-lock-btn{
+    border: none;
+    margin-top: 0.5rem;
+    color: #DC143C;
+    background:white;
+    font-size: 2.0rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.25rem;
+    border-radius: 100%;
+    filter: drop-shadow(5px 5px 3px #909090);
+}
+.mmn-lock-btn:hover{
+    color: white;
+    background: #DC143C;
+    font-size: 2.5rem;
+    width: 3rem;
+    height: 3rem;
+    transition: .2s;
+}
+.mmn-unlock-btn{
+    border: none;
+    margin-top: 0.5rem;
+    color: #32de84;
+    background:white;
+    font-size: 2.0rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.25rem;
+    border-radius: 100%;
+    filter: drop-shadow(5px 5px 3px #909090);
+}
+.mmn-unlock-btn:hover{
+    color: white;
+    background: #32de84;
+    font-size: 2.5rem;
+    width: 3rem;
+    height: 3rem;
+    transition: .2s;
+}
+.mmn-lock-btn-lock{
+    border: none;
+    margin-top: 0.5rem;
+    color: #f95959;
+    background:#233142;
+    font-size: 2.0rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.25rem;
+    border-radius: 100%;
+    filter: drop-shadow(5px 5px 3px #909090);
+}
+.mmn-exec-btn-lock{
+    margin-top: 0.5rem;
+    color: #f95959;
+    background:#233142;
+    font-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.1rem;
+    border-radius: 100%;
+}
+.mmn-feedback-bar{
+    height: 50px;
+}
+.mmn-feedback-bar:hover{
+    height: 120px;
+    transition: .5s;
+}
+
+/*codemirror class*/
+.CodeMirror {
+    border: 1px solid #eee;
+    height: 100% !important;
+  }
+.CodeMirror-scroll {
+    overflow-y: hidden;
+    overflow-x: inherit !important;
+  }

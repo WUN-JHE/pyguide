@@ -1,0 +1,72 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="bg-light" style="min-height:100vh; z-index:1; position: relative;">
+        {% include 'teacher/class_manager/navbar.html' %}
+        <div class="container-fluid bg-secondary d-flex justify-content-center" style="height: 25vh; position: absolute; z-index:-1">
+            <div class="align-self-center">
+                <img class="align-self-center me-3" src="{% static 'images/blackboard.png' %}" width="50 px" height="50 px">
+                <span class="fs-2 text-light">PyGuide - 互動式 python 學習平台</span>
+            </div>
+        </div>
+        <div class="container p-0">
+            <div class="d-flex flex-row justify-content-center mb-3" style="margin-top: 20vh;">
+                <div class="bg-white shadow-lg me-3" style="border-radius: 20px;">
+                    <img class="mmn-card-img" src="{% static 'images/classroom.jpg' %}" width="400 px" height="200 px">
+                    <div class="d-flex justify-content-end">
+                        <a class="mmn-link p-3" href="{% url 'teacher_class_room_creation' %}">
+                            建立新課程
+                            <i class="bi bi-caret-right-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white shadow-lg" style="border-radius: 20px;">
+                    <img class="mmn-card-img" src="{% static 'images/create_student.jpg' %}" width="400 px" height="200 px">
+                    <div class="d-flex justify-content-end">
+                        <a class="mmn-link p-3" href="{% url 'teacher_account_creation' %}">
+                            建立學習帳號
+                            <i class="bi bi-caret-right-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+                <div class="me-3 w-75 shadow-lg mmn-rounded overflow-auto" style="height:100vh;">
+                    <div class="fs-5 mb-1 mmn-rounded-top p-3 fw-bold shadow-lg">
+                        所有課程
+                    </div>
+                    <div class="bg-white mmn-rounded-bottom p-3">
+                        {% for class_room in class_rooms %}
+                        <div class="d-flex flex-row w-100 mb-3">
+                            <img class="mmn-card-img mmn-rounded me-3" src="{% static 'images/material.jpg' %}" width="180 px" height="100 px">
+                            <div class="d-flex flex-column justify-content-center w-75">
+                                <span class="fs-5 mb-2">{{ class_room.class_room }}</span>
+                                <div class="">參與人數 : </div>
+                                <div class="">建立時間 : {{ class_room.created }}</div>
+                            </div>
+                            <div class="w-25 d-flex flex-column justify-content-center">
+                                <a class="btn btn-outline-dark align-self-end " href="teacher/class_room/{{class_room.id}}">管理課程</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="bg-white mmn-rounded w-25 shadow-lg overflow-auto" style="height:100vh;">
+                    <div class="fs-5 mb-1 mmn-rounded-top p-3 fw-bold shadow-lg">
+                        所有學生
+                    </div>
+                    <div class="bg-white mmn-rounded-bottom p-3">
+                        {% for student in students %}
+                        <div class="m-2">
+                            <img class="" src="{% static 'images/student.png' %}" width="60">
+                            <span class="m-3">{{ student.username }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'base/footer.html' %}
+    {% load static %}
+{% endblock %}

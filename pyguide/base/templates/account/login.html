@@ -1,0 +1,42 @@
+
+{% extends 'account/main.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container-fluid d-flex flex-column justify-content-center bg-secondary bg-gradient" style="height : 100vh">
+    <div class="d-flex flex-row h-75 w-100 justify-content-center">
+        <form  method="POST" action="" class="d-flex flex-column justify-content-center border border-dark bg-light bg-gradient" style="border-radius:8%">
+            {% csrf_token %}
+            <div class="d-flex flex-row justify-content-center mb-5">
+                <img src="{% static 'images/mmn_logo_with_text.jpg' %}" class="border border-dark rounded-pill w-75">
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+                <div class="input-group my-3 w-75">
+                    <span class="input-group-text border-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        </svg>
+                    </span>
+                    <input type="text" class="form-control border-top-0 border-start-0 border-end-0 border-dark border-2" name="username" placeholder="Username" aria-label="Username">
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+                <div class="input-group my-3 w-75">
+                    <span class="input-group-text border-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                        </svg>
+                    </span>
+                    <input type="password" class="form-control border-top-0 border-start-0 border-end-0 border-dark border-2" name="password" placeholder="Password" >
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+                <div class="input-group my-3 w-25">
+                    <input class="btn btn-primary rounded-pill w-100" type="submit" value="Login">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

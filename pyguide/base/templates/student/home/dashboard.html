@@ -1,0 +1,83 @@
+{% extends 'student/main.html' %}
+{% load static %}
+{% block content %}
+        <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas" id="header-toggle">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
+        <div class="l-navbar shadow" id="nav-bar">
+            <nav class="nav">
+                <div> 
+                    <a href="/student" class="nav_logo"> 
+                        <i class='bx bx-home nav_icon'></i>
+                        <span class="nav_logo-name">Python 互動式學習平台</span>
+                    </a>
+                    <div class="nav_list"> 
+                        <a href="/student" class="nav_link"> 
+                            <i class='bx bxs-book-content nav_icon'></i>
+                            <span class="nav_name">學習專區</span> 
+                        </a> 
+                        <a href="#" class="nav_link active" target="_blank">
+                            <i class='bx bx-pie-chart-alt-2 nav_icon'></i>
+                            <span class="nav_name">自我檢核</span>
+                        </a>
+                    </div>
+                </div> 
+                <div>
+                    <div class="nav_user">
+                        <i class='bx bx-user nav_icon'></i>
+                        <span class="nav_name">{{ login_identity }} : {{ request.user }}</span>
+                    </div>
+                    <div style="border-bottom: 5px solid #FFD700;margin-bottom: 1.5rem; width: 180px;">
+                    </div>
+                    <a href="{% url 'logout_user' %}" class="nav_link" style="color: #000000;margin-bottom: 0;width: 120px;">
+                        <i class='bx bx-log-out nav_icon'></i>
+                        <span class="nav_name">登出</span>
+                    </a>
+                    <div style="border-bottom: 5px solid #fd5c63;margin-bottom: 1.5rem; width: 120px;">
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container" style="min-height: 100vh; padding: 0px 60px;">
+            <div class="align-self-center d-flex flex-row p-3 mt-3">
+                <img class="align-self-center me-3" src="{% static 'images/blackboard.png' %}" width="65 px" height="65 px">
+                <div class="d-flex flex-column align-items-start">
+                    <div>
+                        <span class="fs-2 fw-bold align-self-end">{{ request.user }}</span>
+                    </div>
+                    <div>
+                        <span class="fs-6 fw-bold text-secondary align-self-end">python 互動式學習平台</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 mmn-rounded" style="height: 5px; background: rgb(165,42,42);background: linear-gradient(90deg, rgba(165,42,42,1) 0%, rgba(196,164,132,1) 100%);">
+            </div>
+            <div class="d-flex flex-column bg-white mmn-rounded shadow-lg mb-3">
+                <div id="main_circle" style="width: 100%; height: 50vh;"></div>
+            </div>
+            <div class="d-flex flex-column bg-white mmn-rounded shadow-lg">
+                <div class="p-2">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th nowrap="nowrap" scope="col">錯誤次數</th>
+                            <th scope="col">錯誤類型</th>
+                            <th scope="col">錯誤內容</th>
+                          </tr>
+                        </thead>
+                        <tbody id="tbody">
+                          
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    {% include 'base/footer.html' %}
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js" integrity="sha256-IF32ooP8NPIzQg/fs7lVHpwG92JcCPE1TZAEyFSgGZU=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/student/sidebar.js' %}"></script>
+    <script src="{% static 'js/student/dashboard/main.js' %}"></script>
+
+{% endblock %}

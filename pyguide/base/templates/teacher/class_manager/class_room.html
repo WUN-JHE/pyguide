@@ -1,0 +1,98 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="bg-light" style="min-height:100vh; z-index:1; position: relative;">
+        {% include 'teacher/class_manager/navbar.html' %}
+        <div class="container p-3">
+            <a href="{% url 'teacher_index' %}" class="mmn-back-link fs-6">
+                <i class="bi bi-caret-left-fill"></i>
+                課程管理
+            </a>
+            <div class="alert alert-light my-3 border-start border-5 border-0 border-dark fs-5 shadow-lg d-flex align-items-center fw-bold" role="alert">
+                <i class="bi bi-pencil-square"></i>
+                 {{my_room.class_room}}
+                <a class="ms-auto mmn-back-link " data-bs-toggle="collapse" href="#user_list" role="button" aria-expanded="false" aria-controls="user_list">
+                    <i class="bi bi-caret-right-fill"></i>
+                    參與學生 -- {{students.count}}
+                </a>
+            </div>
+            <div class="collapse mb-3" id="user_list">
+                <div class="container">
+                    <div class="row g-3">
+                        {% for student in students %}
+                        <div class="col-6">
+                            <div class="border p-3 d-flex">
+                                <img class="" src="{% static 'images/student.png' %}" width="60">
+                                <span class="m-3">{{ student.username }}</span>
+                                <a href="/teacher/student_dashboard/{{student.id}}/{{my_room.id}}" class="btn btn-secondary ms-auto align-self-center">
+                                    詳細資料
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                {% for material in materials %}
+                <div class=" d-flex flex-row justify-content-between border border-5 mmn-rounded mb-3">
+                    <div class="mmn-rounded p-3 w-50">
+                        <div class="fs-5 fw-normal mb-1">
+                            {{material.material_name}}
+                        </div>
+                        <div class="mb-1">
+                            <i class="bi bi-tools"></i>
+                            運算思維 : 
+                            {{material.CT_type}}
+                        </div>
+                        <div class="mb-1">
+                            <i class="bi bi-calendar-event"></i>
+                            最後編輯時間 : 
+                            {{material.last_modify|date:'Y-m-d H:i'}}
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center p-3">
+                        <a href="/teacher/material/{{material.id}}" class="btn btn-success mb-1">
+                            編輯
+                        </a>
+                        <a href="{% url 'teacher_index' %}" class="btn btn-danger">
+                            刪除
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="d-flex flex-row mt-3">
+                <form action="" method="post" class="w-100 p-3 shadow mmn-rounded" enctype="multipart/form-data">
+                    <div class="fs-4 mb-3">
+                        新增教材
+                    </div>
+                    <div class="mb-3">
+                        <lable class="form-label">{{form.material_name.label}}</lable>
+                        {{form.material_name}}
+                    </div>
+                    <div class="mb-3">
+                        <lable class="form-label">{{form.phase.label}}</lable>
+                        {{form.phase}}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{{form.CT_type.label}}</label>
+                        {{form.CT_type}}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{{form.material_file.label}}</label>
+                        {{form.material_file}}
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        未有現成檔案請留空!!
+                    </div>
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-success">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% include 'base/footer.html' %}
+    {% load static %}
+{% endblock %}

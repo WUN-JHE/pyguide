@@ -1,0 +1,36 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" >
+    <div class="container ">
+        <a class="navbar-brand mmn-nav" href="{% url 'teacher_index' %}">
+            <img src="{% static 'images/mmn_logo.png' %}" width="36" height="36">
+            MMN-LAB
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link mmn-nav-active" href="{% url 'teacher_index' %}">課程管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mmn-nav" href="">教材管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"></a>
+                </li>
+            </ul>
+            <div class="me-3 rounded-3 h-100 d-block p-2" style="background-color: rgba(0,10,32,.05);">
+                <span class="navbar-light" style="font-size:1rem;font-weight: bold;">
+                    {{ login_identity }} : {{ request.user }}
+                </span>
+            </div>
+            <span class="nav-item">
+                <a class="btn btn-outline-warning" href="{% url 'logout_user' %}">
+                    登出
+                </a>
+            </span>
+        </div>
+    </div>
+</nav>

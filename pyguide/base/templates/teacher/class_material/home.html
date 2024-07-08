@@ -1,0 +1,39 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="mmn-material-bg" style="min-height:100vh; z-index:1; position: relative;">
+        {% include 'teacher/class_material/navbar.html' %}
+        <div class="container-fluid py-3">
+            <div class="fixed-top bg-light p-3" style="margin-top: 65px;">
+                <a href="/teacher/class_room/{{class_room}}" class="mmn-back-link fs-6">
+                    <i class="bi bi-caret-left-fill"></i>
+                    教材管理
+                </a>
+                <button class="btn btn-success" id="save_file">
+                    儲存
+                </button>
+                <button class="btn btn-primary" id="reconnect">
+                    <i class="bi bi-play-fill"></i>重新連線
+                </button>
+                <button class="btn btn-warning" id="disconnect">
+                    <i class="bi bi-play-fill"></i>斷開連線
+                </button>
+                
+            </div>
+            <div id="main_section" class="mt-5">
+                <div class="w-100 d-flex justify-content-center">
+                    <div class="spinner-border text-dark" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'base/footer.html' %}
+    {% load static %}
+    <script>
+        var material = "{{material}}";
+    </script>
+    <script type="module" src="{% static '/js/teacher/material/main.js' %}"></script>
+    
+{% endblock %}
